@@ -13,8 +13,8 @@ import string
 from pandas import Series,ExcelWriter
 
 #reading data and preprocessing data.
-overall_data= pd.read_excel(r"C:\Users\new\Documents\PythonFiles\Trell project\Work\Input sheet\Trail_Performance_Malayalam_2021_09_24.xlsx",sheet_name="Overall")
-cat=pd.read_excel(r"C:\Users\new\Documents\PythonFiles\Trell project\Work\Input sheet\Trail_Performance_Malayalam_2021_09_24.xlsx",sheet_name="Final Ranking")
+overall_data= pd.read_excel(r"File location")
+cat=pd.read_excel("File location")
 overall_data['CP_0sec']= overall_data['CP_0sec']*100
 data = overall_data[overall_data['CP_0sec'].notna()]
 overall_data['CP_0sec']= overall_data['CP_0sec'].map("{:,.2f}%".format)
@@ -73,7 +73,7 @@ for i in categories:
     p=p+1
     
 # writing data sheet by sheet onto Excel Workbook
-with pd.ExcelWriter('C:\\Users\\new\Documents\\PythonFiles\\Trell project\\Work\\Output sheet\\Trail_Performance_Malayalam_24.09.21.xlsx') as writer:
+with pd.ExcelWriter('destination location') as writer:
     j=0
     null[j].to_excel(writer, sheet_name= 'Categories', index=False)
     j=j+1
@@ -84,9 +84,4 @@ with pd.ExcelWriter('C:\\Users\\new\Documents\\PythonFiles\\Trell project\\Work\
         null[j].to_excel(writer, sheet_name= sheetname, index=False)
         
 
-
-# In[2]:
-
-
-df[df['A'].str.contains("hello")]
 
